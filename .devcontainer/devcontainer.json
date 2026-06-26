@@ -13,5 +13,8 @@
 			]
 		}
 	},
-	"postCreateCommand": "curl -fsSL https://claude.ai/install.sh | bash"
+	"postCreateCommand": "curl -fsSL https://claude.ai/install.sh | bash",
+	"remoteEnv": {
+		"CLAUDE_CODE_OAUTH_TOKEN": "${localEnv:CLAUDE_CODE_OAUTH_TOKEN}"
+	}
 }
