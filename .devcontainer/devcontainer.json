@@ -13,6 +13,7 @@
 			"installTools": true
 		},
 		// Claude Code CLI(Anthropic 公式 feature)
+		// claude --dangerously-skip-permissions で使う
 		"ghcr.io/anthropics/devcontainer-features/claude-code:1.0": {}
 	},
 	"customizations": {
