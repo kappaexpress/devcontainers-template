@@ -4,17 +4,8 @@
 		"dockerfile": "Dockerfile"
 	},
 	"features": {
-		// Node.js (LTS)。バージョン固定したい場合は "version": "22" など
-		"ghcr.io/devcontainers/features/node:1": {
-			"version": "lts"
-		},
-		// Python。uv や pipx も一緒に入れたい場合は installTools: true のまま
-		"ghcr.io/devcontainers/features/python:1": {
-			"installTools": true
-		},
-		// Claude Code CLI(Anthropic 公式 feature)
-		// claude --dangerously-skip-permissions で使う
-		"ghcr.io/anthropics/devcontainer-features/claude-code:1.0": {}
+		"ghcr.io/devcontainers/features/node:1": {},
+		"ghcr.io/devcontainers/features/python:1": {}
 	},
 	"customizations": {
 		"vscode": {
@@ -24,19 +15,9 @@
 				"charliermarsh.ruff",
 				"dbaeumer.vscode-eslint",
 				"esbenp.prettier-vscode",
-				"Anthropic.claude-code",
-				"ms-python.black-formatter"
+				"Anthropic.claude-code"
 			]
 		}
 	},
-	// rebuild しても Claude Code のログイン状態・設定を保持する
-	"mounts": [
-		"source=claude-code-config-${devcontainerId},target=/home/vscode/.claude,type=volume"
-	],
-	"containerEnv": {
-		"CLAUDE_CONFIG_DIR": "/home/vscode/.claude"
-	},
-	"remoteUser": "vscode",
-	// volume の所有者を vscode ユーザーに直す(初回のみ意味がある)
-	"postCreateCommand": "sudo chown -R vscode:vscode /home/vscode/.claude"
+	"postCreateCommand": "npm install -g @anthropic-ai/claude-code @openai/codex"
 }
