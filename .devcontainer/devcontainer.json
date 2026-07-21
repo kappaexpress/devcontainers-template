@@ -19,5 +19,7 @@
 			]
 		}
 	},
+	// claude --dangerously-skip-permissions
+	// codex --yolo
 	"postCreateCommand": "npm install -g @anthropic-ai/claude-code @openai/codex"
 }
