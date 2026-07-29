@@ -14,8 +14,7 @@
 				"ms-python.python",
 				"charliermarsh.ruff",
 				"dbaeumer.vscode-eslint",
-				"esbenp.prettier-vscode",
-				"Anthropic.claude-code"
+				"esbenp.prettier-vscode"
 			]
 		}
 	},
