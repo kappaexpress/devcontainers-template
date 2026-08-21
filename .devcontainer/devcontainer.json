@@ -20,5 +20,5 @@
 	},
 	// claude --dangerously-skip-permissions
 	// codex --yolo
-	"postCreateCommand": "curl -fsSL https://claude.ai/install.sh | bash && curl -fsSL https://chatgpt.com/codex/install.sh | sh"
+	"postCreateCommand": "curl -fsSL https://claude.ai/install.sh | bash && curl -fsSL https://chatgpt.com/codex/install.sh | CODEX_NON_INTERACTIVE=1 sh"
 }
