@@ -1,5 +1,5 @@
 {
-	"name": "devcontainers-template-YYYY-MM-DD",
+	"name": "Dev Container",
 	"build": {
 		"dockerfile": "Dockerfile"
 	},
@@ -7,6 +7,14 @@
 		"ghcr.io/devcontainers/features/node:2": {},
 		"ghcr.io/devcontainers/features/python:1": {}
 	},
+	"containerUser": "vscode",
+	"remoteUser": "vscode",
+	"containerEnv": {
+		"CLAUDE_CONFIG_DIR": "${containerWorkspaceFolder}/.devcontainer-local/claude",
+		"CODEX_HOME": "${containerWorkspaceFolder}/.devcontainer-local/codex"
+	},
+	"postStartCommand": "umask 077 && mkdir -p -- \"$CLAUDE_CONFIG_DIR\" \"$CODEX_HOME\"",
+	"waitFor": "postStartCommand",
 	"customizations": {
 		"vscode": {
 			"extensions": [
@@ -17,8 +25,5 @@
 				"esbenp.prettier-vscode"
 			]
 		}
-	},
-	// claude --dangerously-skip-permissions
-	// codex --yolo
-	"postCreateCommand": "curl -fsSL https://claude.ai/install.sh | bash && curl -fsSL https://chatgpt.com/codex/install.sh | CODEX_NON_INTERACTIVE=1 sh"
+	}
 }
