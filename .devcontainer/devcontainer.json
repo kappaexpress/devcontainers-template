@@ -14,16 +14,5 @@
 		"CODEX_HOME": "${containerWorkspaceFolder}/.devcontainer-local/codex"
 	},
 	"postStartCommand": "umask 077 && mkdir -p -- \"$CLAUDE_CONFIG_DIR\" \"$CODEX_HOME\"",
-	"waitFor": "postStartCommand",
-	"customizations": {
-		"vscode": {
-			"extensions": [
-				"anthropic.claude-code",
-				"ms-python.python",
-				"charliermarsh.ruff",
-				"dbaeumer.vscode-eslint",
-				"esbenp.prettier-vscode"
-			]
-		}
-	}
+	"waitFor": "postStartCommand"
 }
